@@ -33,7 +33,7 @@ paths:
           schema:
             $ref: '#/definitions/Character'
       responses:
-        200:
+        201:
           description: Character added 
           schema:
             $ref: '#/definitions/Character'
