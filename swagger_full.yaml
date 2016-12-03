@@ -9,6 +9,8 @@ schemes:
 paths:
   /characters:
     get:
+      tags:
+        - characters
       operationId: get_characters
       description:  Retrieve the list of characters
       responses:
@@ -19,6 +21,8 @@ paths:
             items:
                 $ref: "#/definitions/Character"
     post:
+      tags:
+        - characters
       description: Create a new character
       operationId: add_character
       parameters:
@@ -37,6 +41,8 @@ paths:
           description: TODO
   /characters/{character_id}:
     get:
+      tags:
+        - characters
       summary: Find a character by id
       description: Returns a single character
       operationId: get_character_by_id
@@ -56,14 +62,14 @@ paths:
         404:
           description: Character not found
     put:
-      summary: Update an existing pet
-      # buscar diferencia entre summary y description
-      description: Updates a character
+      tags:
+        - characters
+      summary: Update an existing character
       operationId: update_character
       parameters:
         - in: path
           name: character_id
-          description: Pet id to delete
+          description: Character id to delete
           required: true
           type: integer
         - in: body
@@ -80,6 +86,8 @@ paths:
         405:
           description: Validation exception
     delete:
+      tags:
+        - other_tag
       summary: Deletes a Character
       description: ''
       operationId: delete_character
@@ -109,7 +117,7 @@ definitions:
         type: string
       species:
         type: string
-        description: pet status in the store
+        description: Species of the character
         enum:
           - Human
           - Robot
